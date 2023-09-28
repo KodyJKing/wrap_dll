@@ -31,10 +31,12 @@ inline void log_info(const char* info) {
 
 inline void _hook_setup() {
 {% for ordinal, symbol, name in ordinal_and_names %}
-#ifdef {{ name | upper }}
-  {{ name }}_real = ({{ name }}_ptr)mProcs[{{ loop.index0 }}];
-  mProcs[{{ loop.index0 }}] = (UINT_PTR)&{{ name }}_fake;
-#endif
+  {% if name != '[NONAME]' %}
+    #ifdef {{ name | upper }}
+      {{ name }}_real = ({{ name }}_ptr)mProcs[{{ loop.index0 }}];
+      mProcs[{{ loop.index0 }}] = (UINT_PTR)&{{ name }}_fake;
+    #endif
+  {% endif %}
 {% endfor %}
 }
 
