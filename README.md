@@ -1,3 +1,7 @@
+I made this fork to tweak the CLI for my personal ease of use. This is a usage example: https://github.com/KodyJKing/wrap_dll_example
+
+#
+
 # Wrap DLL
 
 A tool to automatically generate cpp/asm codes for wrapping a dynamic-link library.
